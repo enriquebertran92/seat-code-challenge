@@ -1,11 +1,11 @@
 package seat.code.mowers.service;
 
 import org.springframework.stereotype.Service;
-import seat.code.mowers.interfaces.ICommand;
+import seat.code.mowers.interfaces.ICommandService;
 import seat.code.mowers.model.EMowerOption;
 
 @Service
-public class CommandService implements ICommand {
+public class CommandService implements ICommandService {
     @Override
     public EMowerOption read(String command) {
         switch(command) {

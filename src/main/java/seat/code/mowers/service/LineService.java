@@ -1,11 +1,11 @@
 package seat.code.mowers.service;
 
 import org.springframework.stereotype.Service;
-import seat.code.mowers.interfaces.ILine;
+import seat.code.mowers.interfaces.ILineService;
 import seat.code.mowers.model.ELineType;
 
 @Service
-public class LineService implements ILine {
+public class LineService implements ILineService {
     @Override
     public ELineType read(String line) {
         switch(line.trim().length()) {
