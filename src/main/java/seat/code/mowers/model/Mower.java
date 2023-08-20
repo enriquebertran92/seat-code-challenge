@@ -59,4 +59,8 @@ public class Mower {
             this.cardinale = ECardinale.getEnum(cardinale.getValue() + position);
         }
     }
+
+    public String toOutputString() {
+        return this.getCoordinate().getX() + " " + this.getCoordinate().getY() + " " + this.getCardinale().toString().substring(0,1);
+    }
 }

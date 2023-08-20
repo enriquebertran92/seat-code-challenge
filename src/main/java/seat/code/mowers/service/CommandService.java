@@ -5,7 +5,7 @@ import seat.code.mowers.interfaces.ICommand;
 import seat.code.mowers.model.EMowerOption;
 
 @Service
-public class CommnadService implements ICommand {
+public class CommandService implements ICommand {
     @Override
     public EMowerOption read(String command) {
         switch(command) {
