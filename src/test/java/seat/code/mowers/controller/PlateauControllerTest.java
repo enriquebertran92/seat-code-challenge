@@ -12,9 +12,9 @@ public class PlateauControllerTest {
 
     @Test
     public void init() {
-        String textInput = plateauController.init("5 5\r\n1 2 N\r\nLMLMLMLMM\r\n3 3 E\r\nMMRMMRMRRM");
+        String textOutput = plateauController.init("5 5\r\n1 2 N\r\nLMLMLMLMM\r\n3 3 E\r\nMMRMMRMRRM");
 
-        String[] lines = textInput.split("\\n");
+        String[] lines = textOutput.split("\\n");
 
 
         Assert.assertEquals(lines.length, 2);

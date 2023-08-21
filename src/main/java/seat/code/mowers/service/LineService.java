@@ -12,55 +12,56 @@ public class LineService implements ILineService {
     ICommandService commandService;
 
     private ELineType readLine(String line) {
-        switch(line.trim().length()) {
-            case 3:
-                return ELineType.INIT_GRID;
-            case 5:
-                return ELineType.INIT_MOWER;
-            default:
-                return ELineType.ACTIONS_MOWER;
+        if(line != null && !line.isEmpty()) {
+            switch (line.trim().length()) {
+                case 3:
+                    return ELineType.INIT_GRID;
+                case 5:
+                    return ELineType.INIT_MOWER;
+                default:
+                    return ELineType.ACTIONS_MOWER;
+            }
         }
+
+        return ELineType.NONE;
     }
 
     private String[] getLines(String inputMessage) {
         return inputMessage.split("[\\r\\n]");
     }
 
-    private void readLines(Plateau plateau, Mower currentMower, String[] lines) {
+    private void readLines(Plateau plateau, String[] lines) {
         for(String line : lines) {
             if (line != null || !line.isEmpty()) {
-                chooseAction(plateau, currentMower, line);
+                chooseAction(plateau, line);
             }
         }
     }
 
-    private void chooseAction(Plateau plateau, Mower currentMower, String line) {
+    private void chooseAction(Plateau plateau, String line) {
         switch(readLine(line)) {
             case INIT_GRID:
                 plateau.setGrid(new Grid(line));
                 break;
             case INIT_MOWER:
-                currentMower = new Mower(line);
-                plateau.addMower(currentMower);
+                plateau.addMower(new Mower(line));
                 break;
             case ACTIONS_MOWER:
                 String[] arrCommands = line.split("");
-                readCommands(currentMower, arrCommands);
+                readCommands(plateau, arrCommands);
                 break;
         }
     }
 
-    private void readCommands(Mower currentMower, String[] arrCommands) {
+    private void readCommands(Plateau plateau, String[] arrCommands) {
         for (String command : arrCommands) {
             EMowerOption mowerOption = commandService.read(command);
-            if (currentMower != null) {
-                currentMower.setAction(mowerOption);
-            }
+            plateau.setActionMower(mowerOption);
         }
     }
 
     public void read(Plateau plateau, String inputMessage) {
         String[] lines = getLines(inputMessage);
-        readLines(plateau, null, lines);
+        readLines(plateau,  lines);
     }
 }

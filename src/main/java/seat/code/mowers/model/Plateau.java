@@ -28,7 +28,15 @@ public class Plateau {
             this.mowers = new ArrayList<>();
         }
 
+        deactivateAllMowers();
+
         this.mowers.add(mower);
+    }
+
+    private void deactivateAllMowers() {
+        for(Mower mower : this.mowers) {
+            mower.setActive(false);
+        }
     }
 
     public String mowersOutputString() {
@@ -39,5 +47,15 @@ public class Plateau {
             }
         }
         return outputString;
+    }
+
+    public void setActionMower(EMowerOption mowerOption) {
+        if(this.mowers != null) {
+            for(Mower mower : this.mowers) {
+                if(mower.isActive()) {
+                    mower.setAction(mowerOption);
+                }
+            }
+        }
     }
 }

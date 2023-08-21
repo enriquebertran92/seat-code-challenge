@@ -3,6 +3,7 @@ package seat.code.mowers.model;
 public class Mower {
     private Coordinate coordinate;
     private ECardinale cardinale;
+    private boolean isActive = true;
 
     public Coordinate getCoordinate() {
         return coordinate;
@@ -31,6 +32,14 @@ public class Mower {
 
     public void setCardinale(ECardinale cardinale) {
         this.cardinale = cardinale;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 
     public void setAction(EMowerOption mowerOption) {
