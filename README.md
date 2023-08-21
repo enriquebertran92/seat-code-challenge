@@ -14,6 +14,11 @@ MMRMMRMRRM
 ```
 
 ## Tests
-Execute the `init` methods in the `test.java.seat.code.mowers.controller.PlateauControllerTest` class from your IDE.
+For execute all test use command
+Execute the `init` methods in the `test.java.seat.code.mowers.controller.PlateauControllerTest`.
+
+Execute the `read` methods in the `test.java.seat.code.mowers.service.CommandServiceTest`.
+
+Execute the `read` methods in the `test.java.seat.code.mowers.service.LineServiceTest`.
 
 
