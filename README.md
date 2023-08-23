@@ -1,6 +1,6 @@
 ## Running the application locally
 
-Execute the `main` method in the `seat.code.mowers.controller.PlateauController` class from your IDE.
+Execute the `main` method in the `seat.code.mowers.SeatCodeApplication` class from your IDE.
 
 ## Postman
 Send data via `POST` at `localhost/plateau/init`
